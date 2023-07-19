@@ -19,11 +19,10 @@ public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         //stage.initStyle(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/join_form.fxml"));
         stage.setTitle("Login");
         stage.centerOnScreen();
         stage.setScene(new Scene(root));
         stage.show();
-
     }
 }

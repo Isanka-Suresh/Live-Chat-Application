@@ -37,7 +37,7 @@ public class Client implements Runnable, Serializable {
                 try{
                     String message = dataInputStream.readUTF();
                     Platform.runLater(() -> {
-                        chatFormController.displayMsg(message);
+                        chatFormController.recieveMsg(message);
                     });
                 }catch (IOException e){
                     try{

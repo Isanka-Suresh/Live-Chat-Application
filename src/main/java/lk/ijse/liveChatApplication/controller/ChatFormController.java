@@ -1,6 +1,7 @@
 package lk.ijse.liveChatApplication.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.mysql.cj.protocol.x.XMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -43,6 +44,24 @@ public class ChatFormController {
 
     @FXML
     void btnSendOnAction(ActionEvent event) {
+        String message=client.getUserName()+"-"+txtChat.getText();
+        client.sendMsg(message);
+        System.out.println(message);
+        sendMsgDisplay(txtChat.getText());
+        txtChat.clear();
+    }
+
+    @FXML
+    void txtChatOnAction(ActionEvent event) {
+
+    }
+
+    public void setClient(Client client) {
+        this.client=client;
+        lblName.setText(client.getUserName()+"'s Chat");
+    }
+
+    public void sendMsgDisplay(String message){
         HBox hBox = new HBox();
         hBox.setStyle(
                 "-fx-alignment: center-right;" +
@@ -52,7 +71,7 @@ public class ChatFormController {
                         " -fx-max-width: 575px;" +
                         " -fx-padding: 10px"
         );
-        Label label = new Label(txtChat.getText());
+        Label label = new Label(message);
         label.setStyle(
                 " -fx-alignment: center-right;" +
                         " -fx-background-color:  #3a86ff;" +
@@ -68,39 +87,29 @@ public class ChatFormController {
         lblChat.getChildren().add(hBox);
     }
 
-    @FXML
-    void txtChatOnAction(ActionEvent event) {
-
-    }
-
-    public void setClient(Client client) {
-        this.client=client;
-        lblName.setText(client.getUserName()+"'s Chat");
-    }
-
-    public void displayMsg(String message) {
-        HBox hBox = new HBox();
-        hBox.setStyle(
-                "-fx-alignment: center-left;" +
-                        " -fx-fill-height: true;" +
-                        " -fx-min-height: 50px;" +
-                        " -fx-pref-width: 575px;" +
-                        " -fx-max-width: 575px;" +
-                        " -fx-padding: 10px"
-        );
-        Label label = new Label(message);
-        label.setStyle(
-                " -fx-alignment: center-left;" +
-                        " -fx-background-color:  #cfdee7;" +
-                        " -fx-background-radius:15px;" +
-                        " -fx-font-size: 18px;" +
-                        " -fx-text-fill: #000000;" +
-                        " -fx-wrap-text: true;" +
-                        " -fx-content-display: left;" +
-                        " -fx-max-width: 350px;" +
-                        " -fx-padding: 10px;"
-        );
-        hBox.getChildren().add(label);
-        lblChat.getChildren().add(hBox);
+    public void recieveMsg(String message) {
+            HBox hBox = new HBox();
+            hBox.setStyle(
+                    "-fx-alignment: center-left;" +
+                            " -fx-fill-height: true;" +
+                            " -fx-min-height: 50px;" +
+                            " -fx-pref-width: 575px;" +
+                            " -fx-max-width: 575px;" +
+                            " -fx-padding: 10px"
+            );
+            Label label = new Label(message);
+            label.setStyle(
+                    " -fx-alignment: center-left;" +
+                            " -fx-background-color:  #cfdee7;" +
+                            " -fx-background-radius:15px;" +
+                            " -fx-font-size: 18px;" +
+                            " -fx-text-fill: #000000;" +
+                            " -fx-wrap-text: true;" +
+                            " -fx-content-display: left;" +
+                            " -fx-max-width: 350px;" +
+                            " -fx-padding: 10px;"
+            );
+            hBox.getChildren().add(label);
+            lblChat.getChildren().add(hBox);
     }
 }

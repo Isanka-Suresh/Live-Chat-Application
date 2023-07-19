@@ -53,7 +53,7 @@
                               </TextField>
                               <Label fx:id="lblError" prefHeight="23.0" prefWidth="347.0" textFill="RED">
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets left="15.0" top="5.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font size="12.0" />

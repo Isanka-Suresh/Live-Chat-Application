@@ -29,24 +29,19 @@ public class LoginFormController {
     @FXML
     private JFXButton btnStart;
 
-
     @FXML
     void btnStartOnAction(ActionEvent event) throws IOException {
-        new Client(txtname.getText());
-        txtname.clear();
-        serverOnline();
+        if(txtname.getText().equals("")){
+            lblError.setText("Enter a name");
+        }else {
+            new Client(txtname.getText());
+            txtname.clear();
+        }
     }
 
     @FXML
     void txtnameOnAction(ActionEvent event) {
 
     }
-
-    private void serverOnline() throws IOException {
-        Server server = Server.getServer();
-        Thread thread = new Thread(server);
-        thread.start();
-    }
-
 
 }

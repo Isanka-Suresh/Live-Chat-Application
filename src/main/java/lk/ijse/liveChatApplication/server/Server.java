@@ -32,7 +32,6 @@ public class Server implements Runnable {
         while(!serverSocket.isClosed()){
             try {
                 Socket socket= serverSocket.accept();
-                System.out.println("A Client Joined");
                 ClientHandler clientHandler= new ClientHandler(socket);
                 Thread thread = new Thread(clientHandler);
                 thread.start();

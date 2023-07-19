@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.liveChatApplication.controller.JoinFormController">
+   <children>
+      <BorderPane layoutX="210.0" layoutY="175.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="25.0" style="-fx-background-color: #1e90ff;" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="25.0" style="-fx-background-color: #1e90ff;" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="64.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Chat App">
+                     <font>
+                        <Font name="Leelawadee UI Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="btnJoin" buttonType="RAISED" onAction="#btnJoinOnAction" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 15;" text="Join">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

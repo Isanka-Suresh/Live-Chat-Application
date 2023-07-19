@@ -20,6 +20,7 @@ public class ClientHandler implements Runnable{
             this.dataOutputStream= new DataOutputStream(socket.getOutputStream());
             this.dataInputStream= new DataInputStream(socket.getInputStream());
             this.userName= dataInputStream.readUTF();
+            System.out.println(userName+"Has Joined");
             clientHandlers.add(this);
         }catch(IOException e){
             e.printStackTrace();
